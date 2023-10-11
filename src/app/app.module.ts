@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {OverlayModule} from '@angular/cdk/overlay';
-
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     BtnComponent,
     OverlayModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CdkAccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
