@@ -1,0 +1,47 @@
+<nav class="bg-sky-700 border-gray-200 px-6 shadow-md">
+  <div class="flex flex-wrap justify-between items-center">
+    <div class="flex items-center">
+      <a routerLink="/">
+        <img
+          alt="logo"
+          class="w-20 mr-8"
+          loading="lazy"
+          src="/assets/images/logo/logo-gradient-white-trello.png"
+        />
+      </a>
+      <div class="flex items-center">
+        <ul class="flex items-center space-x-2 text-sm font-medium">
+          <li>
+            <a
+              class="block py-3 px-4 text-white"
+            >Workspaces</a
+            >
+          </li>
+          <li>
+            <a
+              class="block py-3 px-4 text-white"
+            >Recent</a
+            >
+          </li>
+          <li>
+            <app-btn color="sky" typeBtn="button">Create</app-btn>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <button
+        aria-expanded="false"
+        class="flex rounded-full"
+        type="button"
+        type="button"
+      >
+        <img
+          alt="user photo"
+          class="w-8 h-8 rounded-full"
+          src="https://api.lorem.space/image/face?w=400&h=400"
+        />
+      </button>
+    </div>
+  </div>
+</nav>
