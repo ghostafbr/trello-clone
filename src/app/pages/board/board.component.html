@@ -14,7 +14,7 @@
                class="text-sm mt-2 min-h-[2.5rem]">
             <div
               *ngFor="let todo of column.todos"
-              (click)="openDialog()"
+              (click)="openDialog(todo)"
               cdkDrag
               class="bg-white shadow p-2 rounded mt-2 border-b border-x-gray-300 cursor-pointer hover:bg-gray-400"
             >

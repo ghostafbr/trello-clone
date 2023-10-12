@@ -18,6 +18,7 @@ import {TodoDialogComponent} from "../../components/todo-dialog/todo-dialog.comp
       .cdk-drag-animating {
         transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
       }
+
       /* Agrega estilos personalizados para la barra de desplazamiento */
       ::-webkit-scrollbar {
         width: 8px;
@@ -43,7 +44,7 @@ import {TodoDialogComponent} from "../../components/todo-dialog/todo-dialog.comp
 })
 export class BoardComponent {
 
-  private dialogService = inject(Dialog);
+  private dialog = inject(Dialog);
 
   columns: ColumnModel[] = [
     {
@@ -91,12 +92,20 @@ export class BoardComponent {
     });
   }
 
-  openDialog() {
-    this.dialogService.open(TodoDialogComponent, {
+  openDialog(todo: TodoModel) {
+    const dialogRef = this.dialog.open(TodoDialogComponent, {
       minWidth: '300px',
       maxWidth: '50%',
       autoFocus: false,
+      data: {
+        todo: todo
+      }
     });
+
+    dialogRef.closed.subscribe((result) => {
+      console.log(result);
+    });
+
   }
 
 }

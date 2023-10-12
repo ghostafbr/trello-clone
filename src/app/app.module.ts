@@ -13,6 +13,7 @@ import { BoardsComponent } from './pages/boards/boards.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BoardComponent } from './pages/board/board.component';
+import { ScrollComponent } from './pages/scroll/scroll.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BoardComponent } from './pages/board/board.component';
     BoardsComponent,
     NavbarComponent,
     BoardComponent,
+    ScrollComponent,
   ],
   imports: [
     BrowserModule,
