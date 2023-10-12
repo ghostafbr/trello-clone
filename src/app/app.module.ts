@@ -14,6 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BoardComponent } from './pages/board/board.component';
 import { ScrollComponent } from './pages/scroll/scroll.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ScrollComponent } from './pages/scroll/scroll.component';
     CdkAccordionModule,
     DragDropModule,
     DialogModule,
+    HttpClientModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
