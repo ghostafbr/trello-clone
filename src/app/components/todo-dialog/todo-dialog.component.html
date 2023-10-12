@@ -1,5 +1,5 @@
 <div class="p-6 bg-gray-100 relative rounded shadow">
-  <button class="absolute top-3 right-3 focus:outline-none p-2" (click)="close()" type="button">
+  <button (click)="close()" class="absolute top-3 right-3 focus:outline-none p-2" type="button">
     <fa-icon [icon]="faClose"></fa-icon>
   </button>
   <div class="flex space-x-2 mb-5">
@@ -18,27 +18,35 @@
           Adipisci soluta cum odio, beatae ratione magni nobis, optio similique rerum minus excepturi sed vel, id
           voluptatibus repellendus numquam quod.</p>
         <div class="flex space-x-2">
-          <button type="button" (click)="close(true)"> Yes </button>
-          <button type="button" (click)="close(false)"> No </button>
+          <button (click)="close(true)" type="button"> Yes</button>
+          <button (click)="close(false)" type="button"> No</button>
         </div>
       </div>
     </div>
     <div class="flex flex-auto space-y-2 flex-col">
-      <app-btn color="gray-light" typeBtn="button">
-        <fa-icon [icon]="faUser" class="text-gray-800"></fa-icon>
-        Members
+      <app-btn color="light" typeBtn="button">
+        <span class="flex space-x-2 text-left text-gray-800">
+        <fa-icon [icon]="faUser"></fa-icon>
+        <span>Members</span>
+        </span>
       </app-btn>
-      <app-btn color="gray-light" typeBtn="button">
-        <fa-icon [icon]="faTag" class="text-gray-800"></fa-icon>
-        Labels
+      <app-btn color="light" typeBtn="button">
+        <span class="flex space-x-2 text-left text-gray-800">
+          <fa-icon [icon]="faTag"></fa-icon>
+        <span>Labels</span>
+        </span>
       </app-btn>
-      <app-btn color="gray-light" typeBtn="button">
-        <fa-icon [icon]="faCheckSquare" class="text-gray-800"></fa-icon>
-        Checklist
+      <app-btn color="light" typeBtn="button">
+        <span class="flex space-x-2 text-left text-gray-800">
+        <fa-icon [icon]="faCheckSquare"></fa-icon>
+        <span>Checklist</span>
+        </span>
       </app-btn>
-      <app-btn color="gray-light" typeBtn="button">
-        <fa-icon [icon]="faClock" class="text-gray-800"></fa-icon>
-        Dates
+      <app-btn color="light" typeBtn="button">
+        <span class="flex space-x-2 text-left text-gray-800">
+        <fa-icon [icon]="faClock"></fa-icon>
+        <span>Dates</span>
+        </span>
       </app-btn>
     </div>
   </div>

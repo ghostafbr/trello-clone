@@ -18,6 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {CdkTableModule} from "@angular/cdk/table";
 import { TableComponent } from './pages/table/table.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TableComponent } from './pages/table/table.component';
     DialogModule,
     HttpClientModule,
     ScrollingModule,
-    CdkTableModule
+    CdkTableModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
