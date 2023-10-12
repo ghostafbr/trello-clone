@@ -1,0 +1,41 @@
+<div class="flex flex-col h-screen">
+  <app-navbar></app-navbar>
+  <div class="w-full grow bg-white-600 p-6">
+    <h1 class="text-xl text-gray-700 font-semibold italic mb-5">Table</h1>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400"[dataSource]="products" cdk-table>
+      <tr class="text-xs text-gray-700 uppercase bg-gray-50" *cdkHeaderRowDef="columns" cdk-header-row></tr>
+      <tr class="bg-white border-b" [ngClass]="{'bg-red-200': row.price < 100}" *cdkRowDef="let row; columns: columns" cdk-row></tr>
+      <tr class="text-xl text-gray-700 uppercase bg-gray-200" *cdkFooterRowDef="columns" cdk-footer-row></tr>
+
+      <!-- Price Column -->
+      <ng-container cdkColumnDef="price">
+        <th class="py-3 px-6" *cdkHeaderCellDef cdk-header-cell>Price</th>
+        <td class="py-4 px-6" *cdkCellDef="let row" cdk-cell>{{ row.price }}</td>
+        <td class="py-3 px-6" *cdkFooterCellDef cdk-footer-cell>{{total}}</td>
+      </ng-container>
+
+      <!-- Id Column -->
+      <ng-container cdkColumnDef="#No">
+        <th class="py-3 px-6" *cdkHeaderCellDef cdk-header-cell>Id.</th>
+        <td class="py-4 px-6" *cdkCellDef="let row" cdk-cell>{{ row.id }}</td>
+        <td class="py-3 px-6" *cdkFooterCellDef cdk-footer-cell></td>
+      </ng-container>
+
+      <!-- Cover Column -->
+      <ng-container cdkColumnDef="cover">
+        <th class="py-3 px-6" *cdkHeaderCellDef cdk-header-cell>Cover</th>
+        <td class="py-4 px-6" *cdkCellDef="let row" cdk-cell>
+          <img [src]="row.images[0]" alt="" class="w-20">
+        </td>
+        <td class="py-3 px-6" *cdkFooterCellDef cdk-footer-cell></td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container cdkColumnDef="Name">
+        <th class="py-3 px-6" *cdkHeaderCellDef cdk-header-cell>title</th>
+        <td class="py-4 px-6" *cdkCellDef="let row" cdk-cell>{{ row.title }}</td>
+        <td class="py-3 px-6" *cdkFooterCellDef cdk-footer-cell></td>
+      </ng-container>
+    </table>
+  </div>
+</div>
