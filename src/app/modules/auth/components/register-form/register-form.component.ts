@@ -1,24 +1,29 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { CustomValidators } from '@utils/validators';
+import {AuthService} from "@services/auth.service";
+import {RequestStatus} from "@models/request-status.model";
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
 })
 export class RegisterFormComponent {
+
+  private authService = inject(AuthService);
+
   form = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.email, Validators.required]],
-    password: ['', [Validators.minLength(6), Validators.required]],
+    password: ['', [Validators.minLength(8), Validators.required]],
     confirmPassword: ['', [Validators.required]],
   }, {
     validators: [ CustomValidators.MatchValidator('password', 'confirmPassword') ]
   });
-  status: string = 'init';
+  status: RequestStatus = 'init';
   faEye = faEye;
   faEyeSlash = faEyeSlash;
   showPassword = false;
@@ -32,9 +37,18 @@ export class RegisterFormComponent {
     if (this.form.valid) {
       this.status = 'loading';
       const { name, email, password } = this.form.getRawValue();
-      console.log(name, email, password);
+      return this.authService.register(name, email, password).subscribe({
+        next: () => {
+          this.status = 'success';
+          this.router.navigate(['/login']);
+        },
+        error: () => {
+          this.status = 'failed';
+        }
+      });
     } else {
       this.form.markAllAsTouched();
+      return false;
     }
   }
 }

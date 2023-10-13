@@ -1,15 +1,15 @@
 <h1 class="text-center font-bold py-2 text-gray-700">Log in to Trello</h1>
-<form [formGroup]="form" novalidate class="space-y-4" (ngSubmit)="doLogin()">
+<form (ngSubmit)="login()" [formGroup]="form" class="space-y-4" novalidate>
   <div>
     <div class="relative">
       <input
         #nameInput
+        class="w-full rounded bg-gray-100 border-gray-300 border-2"
         formControlName="email"
         placeholder="Enter email"
         type="email"
-        class="w-full rounded bg-gray-100 border-gray-300 border-2"
       />
-      <button type="button" class="p-2 absolute right-2" (click)="nameInput.focus()">
+      <button (click)="nameInput.focus()" class="p-2 absolute right-2" type="button">
         <fa-icon [icon]="faPen"></fa-icon>
       </button>
     </div>
@@ -31,12 +31,12 @@
   <div>
     <div class="relative">
       <input
-        formControlName="password"
-        placeholder="Enter password"
         [type]="showPassword ? 'text' : 'password'"
         class="w-full rounded bg-gray-100 border-gray-300 border-2"
+        formControlName="password"
+        placeholder="Enter password"
       />
-      <button type="button" class="p-2 absolute right-2" (click)="showPassword = !showPassword">
+      <button (click)="showPassword = !showPassword" class="p-2 absolute right-2" type="button">
         <fa-icon [icon]="showPassword ? faEye : faEyeSlash"></fa-icon>
       </button>
     </div>
@@ -55,12 +55,20 @@
       </p>
     </div>
   </div>
+  <div *ngIf="status === 'failed'">
+    <p
+      class="font-medium text-red-500 text-xs mt-1 ml-1"
+    >
+      Invalid credentials
+    </p>
+  </div>
   <div>
     <app-btn
-      typeBtn="submit"
-      color="success"
       [loading]="status === 'loading'"
-      >Login</app-btn
+      color="success"
+      typeBtn="submit"
+    >Login
+    </app-btn
     >
   </div>
 </form>
