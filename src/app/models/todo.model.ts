@@ -1,9 +1,9 @@
-export interface TodoModel {
+export interface ToDo {
   id: string;
   title: string;
 }
 
-export interface ColumnModel {
-  title: string,
-  todos: TodoModel[]
+export interface Column {
+  title: string;
+  todos: ToDo[];
 }
