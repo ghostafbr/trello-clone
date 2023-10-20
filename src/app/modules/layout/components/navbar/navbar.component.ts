@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {AuthService} from "@services/auth.service";
 import {Router} from "@angular/router";
+import {User} from "@models/user.model";
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +24,8 @@ export class NavbarComponent {
 
   isOpenOverlayAvatar = false;
   isOpenOverlayBoards = false;
+
+  user$ = this.authService.user$;
 
   constructor() {
   }
